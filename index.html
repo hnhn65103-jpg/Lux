@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Masoom Insaan ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at top, #1a1a2e, #0f0c29);
+  color: white;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+/* Luxury glowing hearts */
+#hearts span {
+  position: absolute;
+  color: #ff4d6d;
+  text-shadow: 0 0 10px #ff4d6d, 0 0 20px #ff758c;
+  animation: float 8s linear infinite;
+  opacity: 0.9;
+}
+
+@keyframes float {
+  from { transform: translateY(100vh) scale(0.8); opacity: 1; }
+  to { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+}
+
+#intro {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+}
+
+#mainContent {
+  display: none;
+  opacity: 0;
+  transition: opacity 2s ease;
+  padding: 20px;
+}
+
+/* Luxury animated title */
+.animated-name {
+  font-family: 'Great Vibes', cursive;
+  font-size: 75px;
+  background: linear-gradient(270deg, #ff4d6d, #ffffff, #ff9aa2);
+  background-size: 600% 600%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: move 8s infinite;
+  text-shadow: 0 0 20px rgba(255,77,109,0.5);
+}
+
+@keyframes move {
+  0% { background-position: 0% }
+  50% { background-position: 100% }
+  100% { background-position: 0% }
+}
+
+/* Luxury glass card */
+.card {
+  backdrop-filter: blur(25px);
+  background: rgba(255,255,255,0.07);
+  border-radius: 25px;
+  padding: 30px;
+  margin: 30px auto;
+  max-width: 850px;
+  box-shadow: 0 0 40px rgba(255,77,109,0.2);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Premium cake */
+.cake {
+  margin: 50px auto;
+  width: 220px;
+  height: 220px;
+  background: linear-gradient(#ff758c, #ff4d6d);
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+}
+
+.cake::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  background: rgba(255,255,255,0.2);
+  top: 30px;
+  border-radius: 10px;
+}
+
+.candle {
+  width: 12px;
+  height: 45px;
+  background: white;
+  position: absolute;
+  top: -45px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+
+.flame {
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(circle, #ffd700, orange);
+  border-radius: 50%;
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 15px orange;
+}
+
+/* Luxury button */
+button {
+  padding: 14px 30px;
+  background: linear-gradient(45deg, #ff4d6d, #ff758c);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 0 20px rgba(255,77,109,0.6);
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(255,77,109,1);
+}
+
+.message {
+  line-height: 1.9;
+  font-size: 17px;
+  opacity: 0.95;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="hearts"></div>
+
+<div id="intro">
+  <div id="introText">Loading...</div>
+</div>
+
+<div id="mainContent">
+
+  <h1 class="animated-name">Happy Birthday Masoom Insaan ❤️</h1>
+
+  <div class="card">
+
+    <div class="cake">
+      <div class="candle" onclick="blowCandle()">
+        <div class="flame" id="flame"></div>
+      </div>
+    </div>
+
+    <button onclick="playMusic()">Play Music 🎵</button>
+
+    <div class="message" id="typedMessage"></div>
+
+  </div>
+
+</div>
+
+<audio id="music">
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_115b9b9e9f.mp3">
+</audio>
+
+<script>
+
+/* Luxury floating hearts */
+setInterval(() => {
+  let heart = document.createElement("span");
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = Math.random() * 25 + 15 + "px";
+  document.getElementById("hearts").appendChild(heart);
+  setTimeout(() => heart.remove(), 8000);
+}, 300);
+
+/* Timer */
+let target = new Date().getTime() + 4000;
+
+let timer = setInterval(() => {
+  let diff = target - new Date().getTime();
+
+  if (diff > 0) {
+    document.getElementById("introText").innerHTML = `⏳ ${Math.floor(diff/1000)}s`;
+  } else {
+    document.getElementById("intro").style.display = "none";
+    let main = document.getElementById("mainContent");
+    main.style.display = "block";
+    setTimeout(()=> main.style.opacity = "1",100);
+    startTyping();
+    clearInterval(timer);
+  }
+}, 1000);
+
+/* Original Message */
+const message = `Aaj ka din bohot special hai kyuki tumhara birthday hai
+or tumhe bohot lambi or healthy or sukoon wali zindagi mile  
+tum hamesha khush raho kabhi udas na ho or hamesha smile kerti  
+raho tumhari khushi mere liye genuinely matter kerti hai  
+aur main hamesha chahta hoon tum smile kerti raho or haa vo  
+tumhari likhi huvi story abhi bhi hai mere pass 🤣 Just kidding  
+mene sach me tumhari koi bhi baat aaj tak kisi se bhi share nahi ki  
+or karunga bhi nahi to story bohot dur ki baat hai 🙂  
+or haa mene shayad kabhi bhi tumhe hurt kiya ho ya kabhi tumhe  
+meri wajah se kabhi bura laga ho ya udas huvi ho  
+to I'm so sorry me kabhi nahi chahta ke tum meri wajah se  
+udas ho ya naraz ho me hamesha chahta hu ke tum khus  
+raho muje sach me tumhari smile achi lagti hai 🙂  
+to ab kabhi mile na mile tumhare sath time spend kiya muje  
+hamesha yaad aayega to apna khayal rakhna or muje dua me yaad  
+kerna to finally Happy wala happy birthday Masoom Insaan ❤️  
+Apna khayal rakhna Take care ❤️`;
+
+let i = 0;
+function startTyping() {
+  function type() {
+    if (i < message.length) {
+      document.getElementById("typedMessage").innerHTML += 
+        message.charAt(i) === "\n" ? "<br><br>" : message.charAt(i);
+      i++;
+      setTimeout(type, 25);
+    }
+  }
+  type();
+}
+
+function playMusic() {
+  document.getElementById("music").play();
+}
+
+function blowCandle() {
+  let flame = document.getElementById("flame");
+  flame.style.opacity = "0";
+  flame.style.transform = "scale(0)";
+  setTimeout(()=> alert("Make a wish ❤️"),400);
+}
+
+</script>
+
+</body>
+</html>
